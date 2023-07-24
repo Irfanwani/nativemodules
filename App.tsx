@@ -1,10 +1,12 @@
 import {FC} from 'react';
-import {Button, NativeModules, View} from 'react-native';
+import {Button, View} from 'react-native';
+import CalendarModule from './src/nativemodule';
 
 const App: FC = () => {
-  let {CalendarModule} = NativeModules;
   const onPress = () => {
     CalendarModule.createCalendarEvent('Irfan', 'Mac book');
+    let res = CalendarModule.getConstants();
+    console.log(res);
   };
 
   return (
